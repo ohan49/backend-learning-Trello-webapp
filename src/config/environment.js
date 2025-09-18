@@ -8,5 +8,3 @@ export const env = {
   AUTHOR: process.env.AUTHOR
 }
 
-
-

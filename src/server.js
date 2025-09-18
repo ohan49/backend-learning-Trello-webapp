@@ -4,23 +4,26 @@ import express from 'express'
 import { CONNECT_DB, GET_DB, CLOSE_DB } from '~/config/mongodb.js'
 import { mapOrder } from '~/utils/sorts.js'
 import exitHook from 'async-exit-hook'
+import { env } from './config/environment.js'
+import { APIs_V1 } from './routes/v1'
 
 const START_SERVER = () => {
   const app = express()
 
-  const hostname = 'localhost'
-  const port = 8017
+  const hostname = env.APP_HOST
+  const port = env.APP_PORT
+  const author = env.AUTHOR
 
-  app.get('/', async (req, res) => {
+  app.get('/', (req, res) => {
     // Test Absolute import mapOrder
-    console.log(await GET_DB().listCollections().toArray())
+
     res.end('<h1>Hello World!</h1><hr>')
   })
 
   app.listen(port, hostname, () => {
     // eslint-disable-next-line no-console
     console.log(
-      `3. Hello Nguyen Dinh Anh Hao, I am running at ${hostname}:${port}/`
+      `3. Hello ${author}, I am running at ${env.APP_HOST}:${port}/`
     )
   })
 
