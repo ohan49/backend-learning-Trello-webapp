@@ -1,4 +1,4 @@
-import { env } from '../env/index.js'
+import { env } from './environment.js'
 
 import { MongoClient, ServerApiVersion } from 'mongodb'
 

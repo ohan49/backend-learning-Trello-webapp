@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 
 import express from 'express'
-import { CONNECT_DB, GET_DB, CLOSE_DB } from '~/config/mongodb.js'
-import { mapOrder } from '~/utils/sorts.js'
+import { CONNECT_DB, CLOSE_DB } from './config/mongodb.js'
+// import { mapOrder } from '~/utils/sorts.js'
 import exitHook from 'async-exit-hook'
 import { env } from './config/environment.js'
 import { APIs_V1 } from './routes/v1'
@@ -10,20 +10,12 @@ import { APIs_V1 } from './routes/v1'
 const START_SERVER = () => {
   const app = express()
 
-  const hostname = env.APP_HOST
-  const port = env.APP_PORT
-  const author = env.AUTHOR
+  app.use('/v1', APIs_V1)
 
-  app.get('/', (req, res) => {
-    // Test Absolute import mapOrder
-
-    res.end('<h1>Hello World!</h1><hr>')
-  })
-
-  app.listen(port, hostname, () => {
+  app.listen(env.APP_PORT, env.APP_HOST, () => {
     // eslint-disable-next-line no-console
     console.log(
-      `3. Hello ${author}, I am running at ${env.APP_HOST}:${port}/`
+      `3. Hello ${env.AUTHOR}, I am running at ${env.APP_HOST}:${env.APP_PORT}/`
     )
   })
 
