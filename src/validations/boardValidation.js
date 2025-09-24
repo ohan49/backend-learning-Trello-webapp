@@ -15,15 +15,14 @@ const createMew = async (req, res, next) => {
   })
 
   try {
-    // console.log(req.body)
 
     //* using abortEarly to show all errors
     await correctCondition.validateAsync(req.body, { abortEarly: false })
+
+    //* validation passed, go to the controller
     next()
 
-    res
-      .status(StatusCodes.CREATED)
-      .json({ message: 'POST from validation: Create a new board' })
+    
   } catch (error) {
     // console.log(new Error(error))
     res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({
