@@ -1,5 +1,6 @@
 import { StatusCodes } from 'http-status-codes'
 import Joi from 'joi'
+import ApiError from '~/utils/ApiError'
 
 const createMew = async (req, res, next) => {
   //! validation conditions for creating a new board very important to ensure data integrity
@@ -15,19 +16,19 @@ const createMew = async (req, res, next) => {
   })
 
   try {
-
     //* using abortEarly to show all errors
     await correctCondition.validateAsync(req.body, { abortEarly: false })
 
     //* validation passed, go to the controller
     next()
-
-    
   } catch (error) {
-    // console.log(new Error(error))
-    res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({
-      errors: new Error(error).message
-    })
+    // const errorMessage = new Error(error).message
+    // const customError = new ApiError(
+    //   StatusCodes.UNPROCESSABLE_ENTITY,
+    //   errorMessage
+    // )
+    // next(customError)
+    next(new ApiError(StatusCodes.UNPROCESSABLE_ENTITY, new Error(error).message))
   }
 }
 
