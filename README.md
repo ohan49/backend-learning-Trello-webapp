@@ -25,7 +25,7 @@
 ```
 My name - Tên: Nguyễn Đình Anh Hào
 My school and major - Trường và ngành học: Trương trình liên kết giữa Trường Đại học Khoa học Tự nhiên, Đại học Quốc gia Thành phố Hồ Chí Minh (University of Science - HCMUS) và Trường đại học công nghệ Auckland (AUT) - ngành khoa học dịch vụ(Science Service)
-CV:
+CV: https://www.topcv.vn/xem-cv/AgUAAAFaCwYIU1VXAwVaU1UBBllRVwBeAgRQBAafe2
 Github: https://github.com/ohan49
 ```
 
