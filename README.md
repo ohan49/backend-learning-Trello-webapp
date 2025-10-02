@@ -1,9 +1,10 @@
+<h1>Trello Backend</h1>
+
 ### Requirements (Semantic Versioning)
 
 ```
 * nodejs >= 18.16.0
-* npm = v9.8.1
-* yarn = v1.22.19
+* npm = v10.5.2
 
 * "express": "^4.18.2"
 * "nodemon": "^3.0.1"
@@ -20,3 +21,17 @@
 ```
 
 ### About Me - Thông tin về mình:
+
+```
+My name - Tên: Nguyễn Đình Anh Hào
+My school and major - Trường và ngành học: Trương trình liên kết giữa Trường Đại học Khoa học Tự nhiên, Đại học Quốc gia Thành phố Hồ Chí Minh (University of Science - HCMUS) và Trường đại học công nghệ Auckland (AUT) - ngành khoa học dịch vụ(Science Service)
+CV:
+Github: https://github.com/ohan49
+```
+
+### What am I learning in this project - Những gì mình tìm hiểu trong project này:
+
+```
+Project này hướng tới cải thiện kỹ năng lập trình back-end thông qua dự án trello.
+Tất cả những kiến thức và kỹ năng trong project này được mình tham khảo qua kênh Youtube: TrungQuanDev - https://youtube.com/@trungquandev.
+```
