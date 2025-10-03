@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 
 import express from 'express'
+import cors from 'cors'
 import { CONNECT_DB, CLOSE_DB } from './config/mongodb.js'
 // import { mapOrder } from '~/utils/sorts.js'
 import exitHook from 'async-exit-hook'
@@ -10,6 +11,8 @@ import { errorHandlingMiddleware } from '~/middlewares/errorHandlingMiddleware.j
 
 const START_SERVER = () => {
   const app = express()
+
+  app.use(cors()) //enable CORS
 
   //enable req.body data
   app.use(express.json())
@@ -22,7 +25,7 @@ const START_SERVER = () => {
   app.listen(env.APP_PORT, env.APP_HOST, () => {
     // eslint-disable-next-line no-console
     console.log(
-      `3. Hello ${env.AUTHOR}, I am running at ${env.APP_HOST}:${env.APP_PORT}/`
+      `3. Hello ${env.AUTHOR}, Server is running at ${env.APP_HOST}:${env.APP_PORT}/`
     )
   })
 
