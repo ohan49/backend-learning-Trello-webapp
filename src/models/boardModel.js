@@ -40,7 +40,18 @@ const createNew = async (data) => {
 
 const findOneById = async (id) => {
   try {
-    console.log('id: ', id)
+    // console.log('id: ', id)
+    return await GET_DB()
+      .collection(BOARD_COLLECTION_NAME)
+      .findOne({ _id: new ObjectId(id) })
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+const getDetails = async (id) => {
+  try {
+    // console.log('id: ', id)
     return await GET_DB()
       .collection(BOARD_COLLECTION_NAME)
       .findOne({ _id: new ObjectId(id) })
@@ -53,5 +64,6 @@ export const boardModel = {
   BOARD_COLLECTION_NAME,
   BOARD_COLLECTION_SCHEME,
   createNew,
-  findOneById
+  findOneById,
+  getDetails
 }
