@@ -1,6 +1,8 @@
 /* eslint-disable no-useless-catch */
 import { slugify } from '~/utils/formatters.js'
 import { boardModel } from '~/models/boardModel.js'
+import ApiError from '~/utils/ApiError'
+import { StatusCodes } from 'http-status-codes'
 
 const createNew = async (reqBody) => {
   try {
@@ -26,4 +28,18 @@ const createNew = async (reqBody) => {
   }
 }
 
-export const boardService = { createNew }
+const getDetails = async (boardId) => {
+  try {
+    //* Gọi tới tầng Model để tương tác DB
+    const board = await boardModel.getDetails(boardId)
+    if (!board) {
+      throw new ApiError(StatusCodes.NOT_FOUND, 'Board not found')
+    }
+    //! Trả về kết quả, trong service luôn trả về dữ liệu đã qua xử lý nghiệp vụ
+    return board
+  } catch (error) {
+    throw error
+  }
+}
+
+export const boardService = { createNew, getDetails }
