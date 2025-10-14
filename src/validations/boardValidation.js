@@ -1,6 +1,7 @@
 import { StatusCodes } from 'http-status-codes'
 import Joi from 'joi'
 import ApiError from '~/utils/ApiError'
+import { BOARD_TYPES } from '~/utils/constants'
 
 const createMew = async (req, res, next) => {
   //! validation conditions for creating a new board very important to ensure data integrity
@@ -12,7 +13,8 @@ const createMew = async (req, res, next) => {
       'string.max': ' title is not allowed to be more than {#limit} characters',
       'string.trim': 'title must not have leading or trailing spaces'
     }),
-    description: Joi.string().required().min(3).max(256).trim().strict()
+    description: Joi.string().required().min(3).max(256).trim().strict(),
+    type: Joi.string().required().valid(BOARD_TYPES.PRIVATE, BOARD_TYPES.PUBLIC)
   })
 
   try {
