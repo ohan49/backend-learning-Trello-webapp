@@ -55,7 +55,7 @@ const getDetails = async (boardId) => {
 
     //! Trả về kết quả, trong service luôn trả về dữ liệu đã qua xử lý nghiệp vụ
     return resBoard
-  } catch (error) {
+   } catch (error) {
     throw error
   }
 }
