@@ -3,7 +3,7 @@ import Joi from 'joi'
 import ApiError from '~/utils/ApiError'
 import { BOARD_TYPES } from '~/utils/constants'
 
-const createMew = async (req, res, next) => {
+const createNew = async (req, res, next) => {
   //! validation conditions for creating a new board very important to ensure data integrity
   const correctCondition = Joi.object({
     title: Joi.string().required().min(3).max(50).trim().strict().message({
@@ -30,10 +30,12 @@ const createMew = async (req, res, next) => {
     //   errorMessage
     // )
     // next(customError)
-    next(new ApiError(StatusCodes.UNPROCESSABLE_ENTITY, new Error(error).message))
+    next(
+      new ApiError(StatusCodes.UNPROCESSABLE_ENTITY, new Error(error).message)
+    )
   }
 }
 
 export const boardValidation = {
-  createMew
+  createNew
 }

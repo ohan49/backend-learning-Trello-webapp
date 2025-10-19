@@ -35,3 +35,9 @@ Github: https://github.com/ohan49
 Project này hướng tới cải thiện kỹ năng lập trình back-end thông qua dự án trello.
 Tất cả những kiến thức và kỹ năng trong project này được mình tham khảo qua kênh Youtube: TrungQuanDev - https://youtube.com/@trungquandev.
 ```
+
+### Code Flow:
+
+```
+![code flow](image.png)
+```
